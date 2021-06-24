@@ -1,0 +1,54 @@
+<html>
+ <head> 
+  <title>随机密码生成</title> 
+ </head> 
+ <body> 
+  <button onclick="javascript:generate()">随机生成</button> 
+  <div id="password"></div> 
+  <script type="text/javascript">
+		Array.prototype.shuffle = function() {
+		 	let arr = this,
+		 		temp, 
+		 		length = arr.length;
+	         for (let i = 0; i < length - 1; i++) {
+	           let index = Math.floor(Math.random() * (length --));
+	           temp = arr[index];
+	           arr[index] = arr[length];
+	           arr[length] = temp;
+	        }
+	        return arr;
+		};
+ 
+        // 字符数组，去掉了I,i,L,l,1,O,o,0等视觉识别歧义的字符
+        var signArray = [
+            ['A','B','C','D','E','F','G','H','I','J','k','M','N','O','P','Q','R','S','T','U','V','W','X','Y'],
+            ['a','b','c','d','e','f','g','h','i','j','k','m','n','o','p','q','r','s','t','u','v','w','x','y'],
+            ['1','2','3','4','5','6','7','8','9','0'],
+            ['!','#','$','%','*','@']
+        ];
+        
+        /**
+        * 长度8-12位
+        * 包含大小写字母，数字，字符至少一个
+        */
+        function generate(){
+            var pwd = [];
+            //随机生成密码长度15-15
+            var len = randomNum(15,15);
+            //循环密码长度
+            for(var i = 0; i < len; i++){
+                var arrayIndex = i % signArray.length;
+                var tmpArray = signArray[arrayIndex];
+				var signIndex = Math.floor(Math.random() * tmpArray.length);
+				pwd.push(tmpArray[signIndex]);
+            }
+            pwd.shuffle();
+            document.getElementById("password").innerHTML = pwd.join("");
+        }
+        
+        function randomNum(min,max){
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+    </script>  
+ </body>
+</html>
