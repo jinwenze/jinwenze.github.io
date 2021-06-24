@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.js"></script>
+	</head>
+	<script>
+		var translator = [
+			{ "eparchyCode": "0531", "eparchyName": "济南", "section": "1" },
+			{ "eparchyCode": "0534", "eparchyName": "德州", "section": "1" },
+			{ "eparchyCode": "0543", "eparchyName": "滨州", "section": "1" },
+			{ "eparchyCode": "0631", "eparchyName": "威海", "section": "1" },
+			{ "eparchyCode": "0535", "eparchyName": "烟台", "section": "2" },
+			{ "eparchyCode": "0538", "eparchyName": "泰安", "section": "2" },
+			{ "eparchyCode": "0539", "eparchyName": "临沂", "section": "2" },
+			{ "eparchyCode": "0632", "eparchyName": "枣庄", "section": "2" },
+			{ "eparchyCode": "0634", "eparchyName": "莱芜", "section": "2" },
+			{ "eparchyCode": "0530", "eparchyName": "菏泽", "section": "3" },
+			{ "eparchyCode": "0532", "eparchyName": "青岛", "section": "3" },
+			{ "eparchyCode": "0537", "eparchyName": "济宁", "section": "3" },
+			{ "eparchyCode": "0633", "eparchyName": "日照", "section": "3" },
+			{ "eparchyCode": "0533", "eparchyName": "淄博", "section": "4" },
+			{ "eparchyCode": "0536", "eparchyName": "潍坊", "section": "4" },
+			{ "eparchyCode": "0546", "eparchyName": "东营", "section": "4" },
+			{ "eparchyCode": "0635", "eparchyName": "聊城", "section": "4" }
+		];
+//		function bbb(){
+//			var result=""
+//			for (var i = 0; i < translator.length; i++) {
+//				result+=translator[i].eparchyCode;
+//				result+="<br/>"
+//
+//			}
+//				$("#rspDiv").html(result);
+//			
+//		}
+
+		function aaa() {
+			debugger;
+			var eparchyList = $("#eparchyList").val() + "";
+			var list=eparchyList.split(" ");
+			var result="";
+			for (var i=0;i<list.length;i++) {
+				for (var j = 0; j < translator.length; j++) {
+					var ep=translator[j].eparchyCode;
+					if(ep==list[i]){
+						result+= translator[j].section + "<br/>";
+					}
+				}
+
+			}
+			$("#rspDiv").html(result);
+		}
+	</script>
+
+	<body>
+		<input type="text" id="eparchyList" style="height: 160px;"  /> <!--value="0635 0534 0537 0530 0535 0543 0533 0633 0536 0531 0532 0546 0631 0632 0539 0538"-->
+		<button onclick="aaa()">submit</button>
+		<div id="rspDiv"></div>
+	</body>
+
+</html>

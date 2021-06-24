@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>天赏</title>
+	</head>
+	<link rel="stylesheet" href="../common/css/4261202.css" />
+	<script type="text/javascript" src="../common/js/jquery.js" ></script>
+	
+	<body>
+		<label>是否双倍天赏</label>
+		<div>
+			<input type="radio" name="doubleEvent" id="doubleEvent" value="1" /> 是
+			<input type="radio" name="doubleEvent" id="doubleEvent" value="0" checked="checked" /> 否
+		</div>
+		
+		<label>所需天赏积分：</label>
+		<div>
+			<input type="number" id="tianshang" />
+		</div>
+		
+		<label>代购打折（百分比）：</label>
+		<div>
+			<input type="number" id="sale" />
+		</div>
+		
+		<label>Q币重置折扣（百分比）：</label>
+		<div>
+			<input type="number" id="sale2" />
+		</div>
+		<button onclick="calc()">计算</button><br />
+		<a href="index.html">返回主页</a>
+	</body>
+
+	<script>
+		function calc(){
+			var doubleEvent=$('input:radio[name=doubleEvent]:checked').val();
+			var tianshang=$("#tianshang").val().trim();
+			var sale=$("#sale").val()/100;
+			var sale2=$("#sale2").val()/100;
+			if(checkPercentageRange(sale) || checkPercentageRange(sale2)){
+				alert("折扣范围异常，请取值0~100");
+				return;
+			}
+			if(doubleEvent==1){
+				tianshang=tianshang/2;
+			}
+			var dianjuan=tianshang * 10 * (1-sale);
+			var money=dianjuan/100*sale2;
+			alert("消费"+money+"元");
+			
+		}
+		
+		//如果在0~100 返回false
+		function checkPercentageRange(percent){
+			if(percent<0 || percent>1){
+				return true;
+			}
+			return false;
+		}
+	</script>
+</html>

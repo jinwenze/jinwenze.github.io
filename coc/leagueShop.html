@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../common/css/4261202.css" />
+	</head>
+	<script type="text/javascript"></script>
+	<script type="text/javascript" src="../common/js/jquery.js" ></script>
+	<script>
+		function compute(){
+			var workers=$("#workers").val();
+			var harmerType=$("#harmerType").val();
+			time1=workers*9/30;
+			time2=7*24/120;
+			if(time1>time2){
+				alert("推荐购买药水");
+			}else{
+				alert("推荐购买锤子");
+			}
+		}
+		
+	</script>
+	<body>
+		<p style="color: red;">仅针对受益时间，不考虑资源情况</p>
+		<label style="color: red;">计算买锤子和买工人药水的时间收益。王锤已7天为单位计算</label><br />
+		农民数量：
+		<select id="workers">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+		</select>
+		<br>
+		锤子类型：
+		<input type="radio" name="harmerType" value="heroes" />	王锤
+		<input type="radio" name="harmerType" value="other" /> 其他(如：建筑)
+		<br />
+		<button id="computeBtn" onclick="compute()">计算</button>
+		<br />
+		<a href="../index.html">返回主页</a>
+	</body>
+</html>
