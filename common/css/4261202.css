@@ -7,25 +7,50 @@ body {
 	color: white;
 }
 
-h1,h2,a{
+h1,
+h2,
+a {
 	color: white;
 }
 
-a:hover{
+a:hover {
 	color: dodgerblue;
 }
 
-
-button{
+button {
 	background-color: dodgerblue;
 	color: white;
 	border: none;
 	text-align: center;
 	width: 80px;
 	height: 30px;
-	border-radius:25px;
+	border-radius: 25px;
 }
 
-input{
-	border-radius:5px;
+input {
+	border-radius: 5px;
+}
+
+div {
+	display: flex;
+	justify-content: center;
+}
+
+#outDiv {
+	text-align: center;
+	margin: 0 auto;
+	padding: 0;
+	clear: both;
+}
+
+.inDiv {
+	margin: 0;
+	/*border: 2px solid #33F;*/
+	width: 150px;
+	height: 200px;
+	padding: 0;
+	display: inline-block;
+	_display: inline;
+	*display: inline;
+	zoom: 1;
 }
