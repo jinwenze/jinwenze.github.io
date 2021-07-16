@@ -20,12 +20,17 @@
 			<input type="number" id="tianshang" />
 		</div>
 		
+		<label>物品折扣（百分比）：</label>
+		<div>
+			<input type="number" id="sale3" />
+		</div>
+		
 		<label>代购打折（百分比）：</label>
 		<div>
 			<input type="number" id="sale" />
 		</div>
 		
-		<label>Q币充值折扣（百分比）：</label>
+		<label>点券充值折扣（百分比）：</label>
 		<div>
 			<input type="number" id="sale2" />
 		</div>
@@ -39,15 +44,16 @@
 			var tianshang=$("#tianshang").val().trim();
 			var sale=$("#sale").val()/100;
 			var sale2=$("#sale2").val()/100;
-			if(checkPercentageRange(sale) || checkPercentageRange(sale2)){
-				alert("折扣范围异常，请取值0~100");
+			var sale3=$("#sale3").val()/100;
+			if(checkPercentageRange(sale) || checkPercentageRange(sale2) || checkPercentageRange(sale3)){
+				alert("填写范围异常，请取值0~100");
 				return;
 			}
 			if(doubleEvent==1){
 				tianshang=tianshang/2;
 			}
 			var dianjuan=tianshang * 10 * (1-sale);
-			var money=dianjuan/100*sale2;
+			var money=dianjuan*sale3/100*sale2;
 			alert("消费"+money+"元");
 			
 		}
