@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../common/js/jquery.js"></script>
+	</head>
+	<script>
+		function asd() {
+//			var urls = "https://api.warframe.market/v1/items/nekros_prime_set/orders";
+			var urls = "localhost:8080/sendGet";
+
+			$.ajax({
+				type: "get",
+				url: urls,
+//				dataType: "json",
+				async: true,
+				success: function(data) {
+					$("#result").html(data);
+				},
+				error: function(data) {
+					$("#result").html(data);
+				}
+			});
+
+		}
+	</script>
+
+	<body>
+		<button id="aaa" onclick="asd()">aaa</button>
+		<span id="result"></span>
+	</body>
+
+</html>
